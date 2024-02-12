@@ -1,0 +1,21 @@
+@mixin background($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin set-size($width, $height) {
+    padding-bottom: calc(($height / $width) * 100%);
+}
+
+@mixin on-tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin on-desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}

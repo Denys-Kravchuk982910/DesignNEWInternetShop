@@ -1,0 +1,176 @@
+.footer {
+    display: block;
+    padding: 20px;
+
+    background-color: #4a4a4a;
+
+    @include on-tablet {
+        padding: 50px;
+    }
+
+    &__grid {
+        display: grid;
+        column-gap: 20px;
+        row-gap: 20px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        @include on-tablet {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        @include on-desktop {
+            align-items: center;
+            justify-items: center;
+        }
+    }
+
+    &__grid-container {
+        display: block;
+
+        grid-column: span 1;
+
+        @include on-tablet {
+            grid-column: span 2;
+        }
+
+        @include on-desktop {
+            max-width: fit-content;
+        }
+    }
+
+    &__image-logo {
+        position: relative;
+
+        display: block;
+
+        width: 80px;
+        height: 40px;
+
+        @include on-tablet {
+            width: 92px;
+            height: 46px;
+        }
+    }
+
+    &__image-logo-src {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        @include background('../images/Main/Logo.svg');
+
+        @include on-tablet {
+            @include background('../images/Tablet/crosshop.svg');
+
+            background-size: cover;
+        }
+    }
+
+    &__description {
+        display: block;
+        max-width: 135px;
+
+        font-family: Noto Sans Malayalam, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 17px;
+        color: rgba($color: #fff, $alpha: 0.7);
+
+        @include on-tablet {
+            max-width: 215px;
+
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        @include on-desktop {
+            max-width: 315px;
+        }
+    }
+
+    &__title {
+        display: block;
+        padding-bottom: 15px;
+
+        font-family: Noto Sans Malayalam, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 16px;
+        color: rgba($color: #fff, $alpha: 0.8);
+
+        @include on-tablet {
+            font-size: 19px;
+            line-height: 26px;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    &__contact {
+        display: block;
+        font-family: Noto Sans Malayalam, sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 14px;
+        color: rgba($color: #fff, $alpha: 0.8);
+
+        @include on-tablet {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &__desc {
+        display: block;
+        padding-top: 15px;
+
+        font-family: Noto Sans Malayalam, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 14px;
+
+        color: rgba($color: #fff, $alpha: 0.7);
+
+        @include on-tablet {
+            padding-top: 0;
+
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        max-width: 92px;
+    }
+
+    &__social {
+        display: block;
+        width: 32px;
+        height: 32px;
+
+        &--facebook {
+            @include background('../images/Main/Facebook.svg');
+        }
+
+        &--instagram {
+            @include background('../images/Main/Instagram.svg');
+        }
+
+        &--telegram {
+            @include background('../images/Main/Telegram.svg');
+        }
+    }
+}

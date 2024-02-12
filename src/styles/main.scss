@@ -1,0 +1,696 @@
+ @import '../mixins/mixin.scss';
+ @import './header';
+ @import './footer';
+
+ * {
+    margin: 0;
+    box-sizing: border-box;
+ }
+
+ .main {
+   display: block;
+   padding-inline: 20px;
+
+   background-color: #dedede;
+
+   @include on-tablet {
+      padding-inline: 50px;
+   }
+
+   @include on-desktop {
+      padding-inline: 110px;
+   }
+
+   &__container {
+      @include on-desktop {
+         max-width: 1280px;
+         margin: auto;
+      }
+   }
+
+   &__slider {
+      display: block;
+
+      padding-top: 20px;
+
+      @include on-tablet {
+         display: none;
+      }
+   }
+
+
+   &__slider-inner {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
+      align-items: center;
+
+      column-gap: 10px;
+
+      &--new {
+         column-gap: 20px;
+
+         @include on-tablet {
+            grid-column: 1 / 5;
+         }
+      }
+   }
+
+   &__slider-arrow {
+      display: block;
+      height: 8px;
+      width: 15px;
+
+      grid-column: span 1;
+      
+      &--left {
+         @include background('../images/Main/Arrow-left.svg'); 
+      }
+
+      &--right {
+         @include background('../images/Main/Arrow-right.svg');
+      }
+   }
+
+   &__slider-image {
+      position: relative;
+      display: block;
+
+      width: 100%;
+      grid-column: span 4;
+      
+      @include set-size(215, 230);
+
+      &--new {
+         @include set-size(215, 105);
+      }
+   }
+
+   &__slider-image-src {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @include background('../images/Main/cross1.svg');
+
+      background-size: contain;
+      background-position: center center;
+
+      &--new {
+         background-size: cover;
+      }
+   }
+
+   &__slider-desc-title {
+      display: block;
+      padding-top: 10px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 27px;
+      letter-spacing: 0.03em;
+      text-align: center;
+
+      color: rgba(0, 0, 0, 0.7);
+   }
+
+   &__about {
+      display: block;
+      padding: 30px 0 30px;
+
+      @include on-tablet {
+         display: grid;
+         grid-template-columns: repeat(6, 1fr);
+
+         align-items: center;
+
+         padding: 100px 0;
+      }
+
+      @include on-desktop {
+         grid-template-columns: repeat(12, 1fr);
+      }
+   }
+
+   &__about-image {
+      display: none;
+
+      @include on-tablet {
+
+         position: relative;
+         right: 50px;
+         grid-column: 1 / 4;
+         
+         display: block;
+
+         @include set-size(370, 520);
+      }
+
+      @include on-desktop {
+         grid-column: 1 / 7;
+      }
+   }
+
+   &__lap {
+      @include on-desktop {
+         display: none;
+      }
+   }
+
+   &__desk {
+      display: none;
+
+      @include on-desktop {
+         display: block;
+      }
+   }
+
+   &__about-title-desk {
+      display: block;
+      padding-top: 50px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: 0.07em;
+
+      color: rgba($color: #000000, $alpha: 0.7);
+
+      &--list {
+         padding-top: 0;
+      }
+   }
+
+   &__about-desc {
+      display: block;
+      padding-top: 30px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.07em;
+
+      color: #0A0404B2;
+
+      &--list {
+         padding-top: 0;
+      }
+   }
+
+   &__about-image-src {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @include background('../images/Tablet/why-me.svg');
+      background-size: cover;
+   }
+
+   &__about-inner {
+      @include on-tablet {
+         grid-column: 4 / -1;
+      }
+
+      @include on-desktop {
+         grid-column: 8 / -1;
+      }
+   }
+
+   &__about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style-type: none;
+
+      padding: 50px 0 0;
+   }
+
+   &__title {
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 23px;
+      font-weight: 800;
+      line-height: 27px;
+      letter-spacing: 0.03em;
+
+      color: #0a0404b2;
+      text-transform: uppercase;
+
+      &--focused {
+         color: #bd8644;
+      }
+
+      &--customized {
+         letter-spacing: 0;
+      }
+
+      @include on-tablet {
+         font-size: 38px;
+         font-weight: 800;
+         line-height: 39px;
+         letter-spacing: 0.03em;
+      }
+   }
+
+   &__description-about {
+      display: block;
+      padding-block: 20px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 29px;
+      letter-spacing: 0.07em;
+      
+      color: rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__options-about {
+      display: flex;
+      flex-direction: column;
+
+      gap: 20px;
+   }
+
+   &__option-about {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+
+      border-radius: 24px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__option-title {
+      display: block;
+      max-width: 250px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0.07em;
+
+      color: rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__option-arrow {
+      display: block;
+
+      height: 10px;
+      min-width: 8px;
+
+      @include background('../images/Main/Arrow-down.svg');
+   }
+
+   &__product-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 40px;
+
+      padding-top: 20px;
+
+      @include on-tablet {
+         grid-template-columns: repeat(6, 1fr);
+         row-gap: 0;
+
+         padding-top: 50px;
+      }
+
+      @include on-desktop {
+         grid-template-columns: repeat(12, 1fr);
+      }
+   }
+
+   &__product {
+      display: block;
+
+      grid-column: span 2;
+
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.7);
+
+      @include on-tablet {
+         grid-column: span 3;
+         border-bottom: 0;
+      }
+
+      @include on-desktop {
+         grid-column: span 3;
+      }
+   }
+
+   &__product-image {
+      position: relative;
+
+      display: block;
+      width: 100%;
+
+      @include set-size(280, 240);
+   }
+
+   &__product-image-src {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+   }
+
+   &__product-props {
+      display: flex;
+      justify-content: space-between;
+
+      padding-top: 10px;
+   }
+
+   &__product-title,
+   &__product-price {
+      color: rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__product-title {
+      display: block;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 23px;
+   }
+
+   &__product-price {
+      display: block;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 18px;
+   }
+
+   &__product-cart {
+      position: relative;
+
+      display: block;
+      width: 24px;
+      height: 22px;
+   }
+
+   &__product-cart-src {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @include background('../images/Main/Cart.svg');
+   }
+
+   &__delivery {
+      display: block;
+      padding-top: 60px;
+
+      @include on-tablet {
+         display: grid;
+         grid-template-columns: repeat(6, 1fr);
+      }
+   }
+
+   &__delivery-tab {
+      @include on-desktop {
+         display: none;
+      }
+   }
+
+   &__delivery-desk {
+      display: none;
+
+      @include on-desktop {
+         display: block;
+      }
+   }
+
+   &__delivery-inner {
+      @include on-tablet {
+         grid-column: 1 / 4;
+      }
+
+      @include on-desktop {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+   }
+
+   &__delivery-image {
+      display: none;
+
+      @include on-tablet {
+         position: relative;
+         left: 50px;
+         grid-column: 4 / -1;
+
+         display: block;
+
+         @include set-size(330, 460);
+      }
+   }
+
+   &__delivery-image-src {
+      @include on-tablet {
+         position: absolute;
+         top: 0;
+         left: 0;
+
+         display: block;
+         width: 100%;
+         height: 100%;
+
+         @include background('../images/Tablet/delivery.svg');
+         background-size: cover;
+      }
+   }
+
+   &__delivery-options {
+      display: flex;
+      flex-direction: column;
+      padding-top: 30px;
+
+      gap: 20px;
+   }
+
+   &__delivery-option {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px 10px;
+
+      border-radius: 20px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__delivery-title {
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0.07em;
+
+      color: rgba($color: #000000, $alpha: 0.7);
+   }
+
+   &__delivery-arrow {
+      display: block;
+
+      min-width: 8px;
+      min-height: 8px;
+
+      @include background('../images/Main/Arrow-down.svg');
+   }
+
+   &__new-product {
+      display: block;
+      padding: 40px 0 40px;
+   }
+
+   &__new-product-container {
+      padding-top: 20px;
+
+      @include on-tablet {
+         display: grid;
+         padding-top: 50px;
+         grid-template-columns: repeat(6, 1fr);
+
+         align-content: center;
+      }
+   }
+
+   &__desc-container {
+      @include on-tablet {
+         grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: first baseline;
+      }
+   }
+
+   &__new-title {
+      display: block;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 20px;
+
+      color: rgba($color: #000000, $alpha: 0.8);
+
+      @include on-tablet {
+         font-size: 23px;
+         font-weight: 400;
+         line-height: 31px;
+      }
+   }
+
+   &__new-price {
+      display: block;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+
+      color: rgba($color: #000000, $alpha: 0.8);
+
+      @include on-tablet {
+         font-size: 24px;
+         font-weight: 300;
+         line-height: 33px;
+      }
+   }
+
+   &__new-btn {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+
+      padding-top: 20px;
+
+      @include on-tablet {
+         flex-direction: column;
+         gap: 5px;
+      }
+
+      @include on-desktop {
+         flex-direction: row;
+         gap: 30px;
+      }
+   }
+
+   &__new-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 125px;
+
+      padding: 4px;
+
+      font-family: Noto Sans Malayalam, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 16px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      color: #4a4a4a;
+
+      border-radius: 18px;
+
+      &--buy {
+         background-color: #4a4a4a;
+         color: #fff;
+      }
+
+      &--cart {
+         border: 1px solid #4a4a4a;
+      }
+
+      @include on-tablet {
+         width: 200px;
+         height: 42px;
+      }
+   }
+
+   &__new-line {
+      display: block;
+      margin-top: 15px;
+
+      height: 1px;
+      background-color: #4a4a4a;
+   }
+
+   &__catalog-proposition {
+      display: none;
+
+      @include on-tablet {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          column-gap: 25px;
+
+          padding: 40px 50px 0;
+      }
+  }
+
+  &__catalog-item {
+      position: relative;
+
+      grid-column: span 2;
+
+      display: block;
+      width: 100%;
+
+      @include set-size(220, 330);
+  }
+
+  &__catalog-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &--suit {
+          @include background('../images/Tablet/suit.svg');
+      }
+
+      &--shoes {
+          @include background('../images/Tablet/shoes-catalog.svg');
+      }
+
+      &--jacket {
+          @include background('../images/Tablet/jackets.svg');
+      }
+
+      background-size: cover;
+  }
+}
